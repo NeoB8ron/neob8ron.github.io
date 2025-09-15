@@ -1,30 +1,171 @@
+<!--
+Datei: christianes_vorgeschmack.html
+Anleitung: Datei speichern und im Browser öffnen. Bilder können durch eigene Dateien ersetzt werden.
+-->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Meine erste Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CHristianes vorgeschmack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      text-align: center;
-      padding: 50px;
+    :root{
+      --bg:#0f1724; /* dunkler Grundton */
+      --card:#0b1220;
+      --accent:#ff6b6b;
+      --accent-2:#7c5cff;
+      --muted:rgba(255,255,255,0.7);
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      color-scheme: dark;
     }
-    h1 {
-      color: #333;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #081026 60%);
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-    a {
-      color: #0077cc;
-      text-decoration: none;
+    .wrap{max-width:1100px;margin:48px auto;padding:28px}
+
+    /* Header / Hero */
+    header{
+      display:grid;gap:18px;grid-template-columns:1fr 360px;align-items:center;
     }
-    a:hover {
-      text-decoration: underline;
+    .brand{
+      display:flex;flex-direction:column;gap:6px;
     }
+    .logo{
+      display:inline-flex;align-items:center;gap:12px;
+    }
+    .logo .mark{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-family:'Playfair Display', serif;font-weight:700;font-size:22px;
+      box-shadow:0 6px 24px rgba(124,92,255,0.18), 0 4px 12px rgba(255,107,107,0.06);
+    }
+    h1{font-family:'Playfair Display', serif;font-size:42px;margin:0;color:whitesmoke}
+    p.lead{margin:0;color:var(--muted);max-width:54ch}
+
+    /* Card on right */
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    .hero-card h3{margin:0 0 6px 0}
+    .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(124,92,255,0.12);}
+    .subtle{font-size:14px;color:var(--muted)}
+
+    /* Features */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .feature{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);}
+    .feature h4{margin:0 0 8px 0}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Showcase */
+    .showcase{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;min-height:200px;border:1px solid rgba(255,255,255,0.03)}
+    .screenshot{height:140px;border-radius:10px;background:linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--muted);}
+
+    footer{margin-top:40px;padding:18px;border-radius:12px;background:var(--glass);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      header{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .showcase{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* small animated accents */
+    .mark-acc{position:relative}
+    .mark-acc:after{content:'';position:absolute;right:-10px;bottom:-10px;width:40px;height:40px;background:radial-gradient(circle at 30% 30%, rgba(124,92,255,0.25), rgba(124,92,255,0));border-radius:50%;filter:blur(18px);}
+
+    /* float action */
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
+
   </style>
 </head>
 <body>
-  <h1>Willkommen auf meiner Website!</h1>
-  <p>Das ist meine erste selbstgemachte Seite.</p>
-  <a href="https://example.com">Mein Link</a>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <div class="mark mark-acc">CH</div>
+          <div>
+            <div style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px">A taste by</div>
+            <h1>CHristianes vorgeschmack</h1>
+            <p class="lead">Ein eleganter, moderner One‑Pager — ideal für kulinarische Vorschauen, Pop‑ups oder exklusive Events. Schnell anpassbar, mobil‑freundlich und mit Liebe zum Detail gestaltet.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Jetzt entdecken</h3>
+        <p class="subtle">Exklusive Kostproben, Menü‑Teaser und Anmeldung für das nächste Event.</p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="#showcase">Vorgeschmack ansehen</a>
+          <a class="badge" href="#kontakt">Anmelden</a>
+        </div>
+      </aside>
+    </header>
+
+    <section class="grid" aria-label="Highlights">
+      <div class="feature">
+        <h4>Feinschmecker Design</h4>
+        <p>Stilvolles Layout mit klarer Typografie und stimmungsvollen Akzenten — perfekt für Food‑Content.</p>
+      </div>
+      <div class="feature">
+        <h4>Schnell & Responsiv</h4>
+        <p>Optimiert für Mobilgeräte, schnelle Ladezeiten und einfache Anpassung.</p>
+      </div>
+      <div class="feature">
+        <h4>Leichte Pflege</h4>
+        <p>Einfaches HTML/CSS Setup — keine komplexen Abhängigkeiten nötig.</p>
+      </div>
+    </section>
+
+    <section id="showcase" class="showcase">
+      <div class="panel">
+        <h3>Menü‑Teaser</h3>
+        <div class="screenshot">Bild oder Slider hier einfügen</div>
+        <p style="margin-top:12px;color:var(--muted)">Ein kurzer Text erklärt, welche Aromen erwartet werden — ideal als Appetizer für Gäste.</p>
+      </div>
+      <div class="panel">
+        <h3>Event & Kontakt</h3>
+        <div style="margin-top:6px;color:var(--muted);font-size:14px">Melde dich an, um benachrichtigt zu werden:</div>
+        <form id="contact" style="margin-top:12px;display:flex;flex-direction:column;gap:8px" onsubmit="event.preventDefault();handleSubmit()">
+          <input id="name" placeholder="Name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <input id="email" type="email" placeholder="E‑Mail" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <button class="btn" type="submit">Anmelden</button>
+          <div id="formmsg" style="font-size:13px;color:var(--muted)"></div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div style="font-size:14px;color:var(--muted)">© <strong>CHristianes vorgeschmack</strong> — Alle Rechte vorbehalten</div>
+      <div style="font-size:13px;color:var(--muted)">Made with ♥ • <a href="#showcase" style="color:inherit;text-decoration:underline;">Mehr erfahren</a></div>
+    </footer>
+  </div>
+
+  <script>
+    function handleSubmit(){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('formmsg');
+      if(!name || !email){ msg.textContent = 'Bitte Name und E‑Mail angeben.'; return; }
+      // Hier würde üblicherweise ein Fetch an einen Server erfolgen.
+      msg.textContent = 'Danke, ' + name + '! Wir melden uns an ' + email + '.';
+      // Form zurücksetzen nach kurzer Zeit
+      setTimeout(()=>{ document.getElementById('contact').reset(); }, 1400);
+    }
+  </script>
 </body>
 </html>
+
